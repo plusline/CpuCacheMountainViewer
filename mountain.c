@@ -5,10 +5,10 @@
 #include "fcyc2.h" /* K-best measurement timing routines */
 #include "clock.h" /* routines to access the cycle counter */
 
-#define MINBYTES (1 << 10)  /* Working set size ranges from 1 KB */
+#define MINBYTES (1 << 14)  /* Working set size ranges from 16 KB */
 #define MAXBYTES (1 << 27)  /* ... up to 128 MB */
-#define MAXSTRIDE 32        /* Strides range from 1 to 32 */
-#define STRIDESTRIDE 2      /* increment stride by this amount each time */
+#define MAXSTRIDE 11        /* Strides range from 1 to 11 */
+#define STRIDESTRIDE 1      /* increment stride by this amount each time */
 #define MAXELEMS MAXBYTES/sizeof(int) 
 
 int data[MAXELEMS];         /* The array we'll be traversing */
@@ -26,7 +26,7 @@ int main()
     double Mhz;      /* Clock frequency */
 
     init_data(data, MAXELEMS); /* Initialize each element in data to 1 */
-    Mhz = mhz(0);              /* Estimate the clock frequency */
+    Mhz = mhz(1);              /* Estimate the clock frequency */
 /* $end mountainmain */
     /* Not shown in the text */
     printf("Clock frequency is approx. %.1f MHz\n", Mhz);
@@ -42,9 +42,9 @@ int main()
 /* $end mountainmain */
 	/* Not shown in the text */
 	if (size > (1 << 20))
-	    printf("%dm\t", size / (1 << 20));
+	    printf("%dM\t", size / (1 << 20));
 	else
-	    printf("%dk\t", size / 1024);
+	    printf("%dK\t", size / 1024);
 
 /* $begin mountainmain */
 	for (stride = 1; stride <= MAXSTRIDE; stride += STRIDESTRIDE) {
