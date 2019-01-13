@@ -6,8 +6,8 @@
 #include "clock.h" /* routines to access the cycle counter */
 
 #define MINBYTES (1 << 14)  /* Working set size ranges from 16 KB */
-#define MAXBYTES (1 << 27)  /* ... up to 128 MB */
-#define MAXSTRIDE 11        /* Strides range from 1 to 11 */
+#define MAXBYTES (1 << 28)  /* ... up to 256 MB */
+#define MAXSTRIDE 32        /* Strides range from 1 to 32 */
 #define STRIDESTRIDE 1      /* increment stride by this amount each time */
 #define MAXELEMS MAXBYTES/sizeof(int) 
 
