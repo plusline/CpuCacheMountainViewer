@@ -1,0 +1,10 @@
+# started on Sun Jan 13 19:46:55 2019
+
+
+ Performance counter stats for './cache_misses 14 32':
+
+           261,738      LLC-loads                                                   
+           131,126      LLC-load-misses           #   50.10% of all LL-cache hits   
+
+       0.461495894 seconds time elapsed
+
